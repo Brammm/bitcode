@@ -7,14 +7,11 @@ assert_page_contains() {
     local response=`curl -s http://localhost:8080`
 
     if grep -q -e '$expected_content' <<<$response; then
-        echo $?
-        echo "It's not there: $expected_content"
-    else
-        echo $?
-        echo "It's there: $expected_content"
+        echo "It's not there: $expected_content" && exit 1
     fi
 
-    exit;
+    echo "It's there: $expected_content" && exit 0
 }
 
-assert_page_contains 'Bram'
+## Should fail
+assert_page_contains 'FOO'
