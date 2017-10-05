@@ -15,3 +15,5 @@ assert_page_contains() {
 
 ## Should fail
 assert_page_contains 'FOO'
+## Should pass
+assert_page_contains 'Bram Van der Sype'
