@@ -57,8 +57,21 @@ a:hover svg {
  * Cover
  */
 
+.cover-heading svg {
+    width: 90%;
+}
+
 .cover {
     padding: 0 1.5rem;
+}
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+    color: rgba(255,255,255,.3);
+    font-size: .7em;
 }
 
 /*
@@ -71,13 +84,20 @@ a:hover svg {
         vertical-align: middle;
     }
 
+    .mastfoot {
+        position: fixed;
+        bottom: 0;
+    }
+
     /* Handle the widths */
+    .mastfoot,
     .cover-container {
         width: 100%; /* Must be percentage or pixels for horizontal alignment */
     }
 }
 
 @media (min-width: 62em) {
+    .mastfoot,
     .cover-container {
         width: 42rem;
     }
