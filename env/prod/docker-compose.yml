@@ -4,15 +4,15 @@ services:
     bitcode-nginx:
         image: brammm/bitcode-nginx
         networks:
-            - web
+            - ingress
         labels:
           - "traefik.backend=bitcode-nginx"
-          - "traefik.docker.network=web"
+          - "traefik.docker.network=ingress"
           - "traefik.frontend.rule=Host:bitcode.be"
           - "traefik.enable=true"
           - "traefik.port=80"
           - "traefik.default.protocol=http"
 
 networks:
-  web:
+  ingress:
     external: true
