@@ -3,5 +3,3 @@ version: '3'
 services:
     bitcode-nginx:
         image: brammm/bitcode-nginx
-        ports:
-            - 80:80
