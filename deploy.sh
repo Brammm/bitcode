@@ -5,7 +5,7 @@ DOCKER_TUNNEL_PORT=12374
 DOCKER_SWARM_HOST=174.138.10.79
 DEPLOY_USER=root
 DOCKER_STACK_FILE=env/prod/docker-compose.yml
-DOCKER_STACK_NAME=brammm
+DOCKER_STACK_NAME=bitcode
 
 docker run \
     -d \
