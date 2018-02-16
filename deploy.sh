@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-eval "$(ssh-agent -s)"
-
 DOCKER_TUNNEL_CONTAINER=docker_swarm_ssh_tunnel
 DOCKER_TUNNEL_PORT=12374
 DOCKER_SWARM_HOST=174.138.10.79
@@ -12,7 +10,7 @@ DOCKER_STACK_NAME=brammm
 sudo docker run \
     -d \
     --name ${DOCKER_TUNNEL_CONTAINER} \
-    -v ${SSH_AUTH_SOCK}:/ssh-agent \
+    -v ~/.ssh:/root/.ssh \
     -p ${DOCKER_TUNNEL_PORT}:${DOCKER_TUNNEL_PORT} \
     kingsquare/tunnel \
     *:${DOCKER_TUNNEL_PORT}:/var/run/docker.sock \
