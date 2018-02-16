@@ -5,6 +5,11 @@ pipeline {
             steps {
                 sh 'make build'
             }
+        },
+        stage('deploy') {
+            steps {
+                sh './deploy.sh'
+            }
         }
     }
 }
