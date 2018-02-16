@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+eval "$(ssh-agent -s)"
+
 DOCKER_TUNNEL_CONTAINER=docker_swarm_ssh_tunnel
 DOCKER_TUNNEL_PORT=12374
 DOCKER_SWARM_HOST=174.138.10.79

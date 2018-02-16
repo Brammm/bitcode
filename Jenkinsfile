@@ -8,7 +8,6 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh 'eval "$(ssh-agent -s)"'
                 sh './deploy.sh'
             }
         }
