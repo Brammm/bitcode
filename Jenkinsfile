@@ -8,6 +8,9 @@ pipeline {
         }
         stage('deploy') {
             steps {
+                sh 'eval `ssh-agent -s`'
+                sh 'ssh-add'
+                sh 'echo $SSH_AUTH_SOCK'
                 sh './deploy.sh'
             }
         }
