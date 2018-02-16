@@ -7,7 +7,7 @@ DEPLOY_USER=root
 DOCKER_STACK_FILE=env/prod/docker-compose.yml
 DOCKER_STACK_NAME=brammm
 
-sudo docker run \
+docker run \
     -d \
     --name ${DOCKER_TUNNEL_CONTAINER} \
     -v ~/.ssh:/root/.ssh \
@@ -16,13 +16,12 @@ sudo docker run \
     *:${DOCKER_TUNNEL_PORT}:/var/run/docker.sock \
     ${DEPLOY_USER}@${DOCKER_SWARM_HOST}
 
-
-until sudo docker -H localhost:${DOCKER_TUNNEL_PORT} version 2>/dev/null 1>/dev/null > /dev/null; do
+until docker -H localhost:${DOCKER_TUNNEL_PORT} version 2>/dev/null 1>/dev/null > /dev/null; do
     echo "Waiting for docker tunnel";
     sleep 1;
 done
 
-sudo docker \
+docker \
     -H localhost:${DOCKER_TUNNEL_PORT} \
     stack deploy \
     --with-registry-auth \
@@ -30,5 +29,5 @@ sudo docker \
     --prune \
     ${DOCKER_STACK_NAME}
 
-sudo docker stop ${DOCKER_TUNNEL_CONTAINER}
-sudo docker rm ${DOCKER_TUNNEL_CONTAINER}
+docker stop ${DOCKER_TUNNEL_CONTAINER}
+docker rm ${DOCKER_TUNNEL_CONTAINER}
