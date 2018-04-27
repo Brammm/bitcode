@@ -7,6 +7,10 @@ pipeline {
             }
         }
         stage('deploy') {
+            input {
+                message "Deploy to production?"
+                ok "Deploy"
+            }
             steps {
                 sh './deploy.sh'
             }
