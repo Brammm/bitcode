@@ -1,7 +1,7 @@
 .PHONY: build
 build:
-	sudo docker-compose build && \
-	sudo docker-compose push
+	docker-compose build --pull && \
+	docker-compose push
 
 DOCKER_TUNNEL_CONTAINER=docker_swarm_ssh_tunnel
 DOCKER_TUNNEL_PORT=12374
